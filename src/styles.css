@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #2e7d32;
+    /* Forest Green */
+    --accent-color: #ffca28;
+    /* Amber */
+    --bg-color: #f9f9f9;
+    --text-dark: #333;
+    --text-light: #fff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Material Overrides for Premium Feel */
+.mat-mdc-card {
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    background-color: white !important;
+}
+
+.mat-mdc-raised-button.mat-accent {
+    background-color: var(--accent-color) !important;
+    color: var(--text-dark) !important;
+    font-weight: bold;
+}
+
+.mat-mdc-button.mat-primary {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+}
+
+.mat-toolbar.mat-primary {
+    background: var(--primary-color) !important;
+    color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

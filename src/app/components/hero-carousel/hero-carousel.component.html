@@ -1,0 +1,27 @@
+<div class="carousel-container">
+    <div class="carousel-slides" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+        <div class="slide" *ngFor="let slide of slides">
+            <img [src]="slide.image" [alt]="slide.title" class="slide-image">
+            <div class="slide-content">
+                <h2 *ngIf="slide.title">{{ slide.title }}</h2>
+                <p *ngIf="slide.subtitle">{{ slide.subtitle }}</p>
+            </div>
+            <div class="slide-overlay"></div>
+        </div>
+    </div>
+
+    <button mat-icon-button class="nav-btn prev" (click)="prevSlide()">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button class="nav-btn next" (click)="nextSlide()">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+
+    <div class="carousel-indicators">
+        <span *ngFor="let slide of slides; let i = index" class="indicator" [class.active]="i === currentSlide"
+            (click)="setSlide(i)">
+        </span>
+    </div>
+
+    <div class="bottom-gradient"></div>
+</div>
