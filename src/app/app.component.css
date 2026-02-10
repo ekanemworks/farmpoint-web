@@ -2,6 +2,58 @@
     flex: 1 1 auto;
 }
 
+.logo {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 700px;
+    margin: 0 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: stretch;
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 40px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-button {
+    background-color: #FFA726 !important;
+    border-radius: 0 !important;
+    width: 48px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button mat-icon {
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #FB8C00 !important;
+}
+
 .app-toolbar {
     position: sticky;
     top: 0;
@@ -22,4 +74,34 @@
     border-top: 1px solid #eee;
     color: #888;
     margin-top: 40px;
+}
+
+/* Mobile Search Icon - hidden by default */
+.mobile-search-icon {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    /* Hide full search bar on mobile */
+    .search-container {
+        display: none;
+    }
+
+    /* Show mobile search icon */
+    .mobile-search-icon {
+        display: flex;
+    }
+
+    /* Adjust toolbar for mobile */
+    .app-toolbar {
+        padding: 0 8px;
+    }
+
+    /* Hide button text on very small screens */
+    .app-toolbar button:not([mat-icon-button]) {
+        font-size: 12px;
+        padding: 0 8px;
+    }
 }
