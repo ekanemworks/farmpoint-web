@@ -201,7 +201,8 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .buy-box-section {
+    .buy-box-section,
+    .product-image-section {
         grid-column: span 2;
         position: static;
     }
@@ -210,9 +211,18 @@
 @media (max-width: 600px) {
     .product-detail-container {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
+    .product-image-section,
+    .product-info-section,
     .buy-box-section {
-        grid-column: span 1;
+        position: static;
+        grid-column: 1;
+        width: 100%;
+    }
+
+    .product-info-section {
+        padding-right: 0;
     }
 }
