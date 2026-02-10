@@ -6,4 +6,8 @@ export interface Product {
   price: number;
   dateAdded: Date;
   imageUrl: string;
+  description?: string;
+  rating?: number;
+  reviewCount?: number;
+  inStock?: boolean;
 }

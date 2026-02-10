@@ -1,0 +1,67 @@
+<div class="product-detail-container" *ngIf="product$ | async as product; else loading">
+    <div class="product-image-section">
+        <div class="main-image-container">
+            <img [src]="product.imageUrl" [alt]="product.name">
+        </div>
+    </div>
+
+    <div class="product-info-section">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <div class="product-meta">
+            <div class="rating">
+                <mat-icon class="star-icon">star</mat-icon>
+                <span class="rating-value">{{ product.rating }}</span>
+                <span class="review-count">({{ product.reviewCount }} ratings)</span>
+            </div>
+            <div class="seller-info">Sold by <span class="seller-name">{{ product.sellerName }}</span></div>
+        </div>
+
+        <div class="price-section">
+            <span class="price-symbol">$</span>
+            <span class="price-value">{{ product.price | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="description-section">
+            <h3>About this item</h3>
+            <p>{{ product.description }}</p>
+        </div>
+
+        <div class="product-specs">
+            <div class="spec-row">
+                <span class="spec-label">Location:</span>
+                <span class="spec-value">{{ product.sellerLocation }}</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Date Added:</span>
+                <span class="spec-value">{{ product.dateAdded | date:'mediumDate' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="buy-box-section">
+        <div class="buy-box">
+            <div class="price-large">{{ product.price | currency }}</div>
+            <div class="stock-status" [class.in-stock]="product.inStock">
+                {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+            </div>
+
+            <button mat-flat-button color="primary" class="buy-btn">Add to Cart</button>
+            <button mat-stroked-button color="accent" class="buy-btn">Buy Now</button>
+
+            <div class="secure-transaction">
+                <mat-icon>lock</mat-icon> Secure transaction
+            </div>
+
+            <div class="delivery-info">
+                <p>Ships from <strong>FarmPoint</strong></p>
+                <p>Sold by <strong>{{ product.sellerName }}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="loading-container">
+        <p>Loading product details...</p>
+    </div>
+</ng-template>
