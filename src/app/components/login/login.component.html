@@ -1,0 +1,43 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Login to FarmPoint</mat-card-title>
+            <mat-card-subtitle>Enter your phone number and password</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phone" placeholder="+1234567890" type="tel">
+                    <mat-error *ngIf="loginForm.get('phone')?.hasError('required')">
+                        Phone number is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('phone')?.hasError('pattern')">
+                        Please enter a <strong>valid phone number</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="'password'" formControlName="password" placeholder="Min 6 characters">
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+                        Password must be at least <strong>6 characters long</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="full-width login-button" type="submit"
+                    [disabled]="!loginForm.valid">
+                    LOGIN
+                </button>
+            </form>
+        </mat-card-content>
+
+        <mat-card-footer class="login-footer">
+            <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+        </mat-card-footer>
+    </mat-card>
+</div>
