@@ -62,7 +62,8 @@
 }
 
 .content {
-    padding-bottom: 60px;
+    min-height: calc(100vh - 64px - 100px);
+    /* Adjust based on header/footer height */
 }
 
 
@@ -70,10 +71,9 @@
 .app-footer {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: transparent;
     border-top: 1px solid #eee;
     color: #888;
-    margin-top: 40px;
 }
 
 /* Mobile Search Icon - hidden by default */

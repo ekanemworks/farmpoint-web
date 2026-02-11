@@ -9,7 +9,7 @@
             <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Full Name</mat-label>
-                    <input matInput formControlName="fullName" placeholder="John Doe">
+                    <input matInput formControlName="fullName" placeholder="John Doe" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="signupForm.get('fullName')?.hasError('required')">
                         Full name is <strong>required</strong>
                     </mat-error>
@@ -17,7 +17,8 @@
 
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput formControlName="phone" placeholder="+1234567890" type="tel">
+                    <input matInput formControlName="phone" placeholder="+1234567890" type="tel"
+                        [errorStateMatcher]="matcher">
                     <mat-error *ngIf="signupForm.get('phone')?.hasError('required')">
                         Phone number is <strong>required</strong>
                     </mat-error>
@@ -28,7 +29,8 @@
 
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="'password'" formControlName="password" placeholder="Min 6 characters">
+                    <input matInput [type]="'password'" formControlName="password" placeholder="Min 6 characters"
+                        [errorStateMatcher]="matcher">
                     <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
                         Password is <strong>required</strong>
                     </mat-error>
@@ -39,11 +41,12 @@
 
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Confirm Password</mat-label>
-                    <input matInput [type]="'password'" formControlName="confirmPassword" placeholder="Repeat password">
+                    <input matInput [type]="'password'" formControlName="confirmPassword" placeholder="Repeat password"
+                        [errorStateMatcher]="matcher">
                     <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
                         Confirm password is <strong>required</strong>
                     </mat-error>
-                    <mat-error *ngIf="signupForm.hasError('mismatch') && signupForm.get('confirmPassword')?.dirty">
+                    <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch')">
                         Passwords <strong>do not match</strong>
                     </mat-error>
                 </mat-form-field>
