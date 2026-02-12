@@ -28,7 +28,7 @@ export class ProductCardComponent {
 
   addToCart(event: Event): void {
     event.stopPropagation();
-    console.log('Adding to cart:', this.product.name);
+    console.log('Adding to cart:', this.product.title);
     // Add to cart logic here
   }
 }

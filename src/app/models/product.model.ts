@@ -1,13 +1,16 @@
 export interface Product {
   id: number;
-  name: string;
-  sellerName: string;
-  sellerLocation: string;
+  refNo: string;
+  title: string;
+  description: string;
   price: number;
-  dateAdded: Date;
-  imageUrl: string;
-  description?: string;
-  rating?: number;
-  reviewCount?: number;
-  inStock?: boolean;
+  image_1: string;
+  image_2: string;
+  categoryName: string;
+  itemName: string;
+  createdAt: string;
+  sellerLocation: string;
 }
+
+
+
