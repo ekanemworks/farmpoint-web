@@ -1,19 +1,21 @@
 <div class="product-detail-container" *ngIf="product$ | async as product; else loading">
     <div class="product-image-section">
         <div class="main-image-container">
-            <img [src]="product.imageUrl" [alt]="product.name">
+            <img [src]="product.image_1" [alt]="product.title">
         </div>
     </div>
 
     <div class="product-info-section">
-        <h1 class="product-title">{{ product.name }}</h1>
+        <h1 class="product-title">{{ product.title }}</h1>
         <div class="product-meta">
-            <div class="rating">
+            <!-- Properties below commented out as they are not in the current Product model -->
+            <!-- <div class="rating">
                 <mat-icon class="star-icon">star</mat-icon>
                 <span class="rating-value">{{ product.rating }}</span>
                 <span class="review-count">({{ product.reviewCount }} ratings)</span>
             </div>
-            <div class="seller-info">Sold by <span class="seller-name">{{ product.sellerName }}</span></div>
+            <div class="seller-info">Sold by <span class="seller-name">{{ product.sellerName }}</span></div> -->
+            <div class="seller-info">Item Ref: <span class="seller-name">{{ product.refNo }}</span></div>
         </div>
 
         <div class="price-section">
@@ -33,7 +35,7 @@
             </div>
             <div class="spec-row">
                 <span class="spec-label">Date Added:</span>
-                <span class="spec-value">{{ product.dateAdded | date:'mediumDate' }}</span>
+                <span class="spec-value">{{ product.createdAt | date:'mediumDate' }}</span>
             </div>
         </div>
     </div>
@@ -41,9 +43,10 @@
     <div class="buy-box-section">
         <div class="buy-box">
             <div class="price-large">{{ product.price | currency }}</div>
-            <div class="stock-status" [class.in-stock]="product.inStock">
+            <!-- Stock status removed as it is not in the Product model -->
+            <!-- <div class="stock-status" [class.in-stock]="product.inStock">
                 {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
-            </div>
+            </div> -->
 
             <button mat-flat-button color="primary" class="buy-btn">Add to Cart</button>
             <button mat-stroked-button color="accent" class="buy-btn">Buy Now</button>
@@ -54,7 +57,7 @@
 
             <div class="delivery-info">
                 <p>Ships from <strong>FarmPoint</strong></p>
-                <p>Sold by <strong>{{ product.sellerName }}</strong></p>
+                <p>Location: <strong>{{ product.sellerLocation }}</strong></p>
             </div>
         </div>
     </div>

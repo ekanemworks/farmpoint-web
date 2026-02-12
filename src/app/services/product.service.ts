@@ -16,13 +16,18 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
     getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.apiUrl);
+        return this.http.get<any>(this.apiUrl).pipe(
+            map(res => {
+                if (Array.isArray(res)) return res;
+                if (res && res.data && Array.isArray(res.data)) return res.data;
+                if (res && res.products && Array.isArray(res.products)) return res.products;
+                return [];
+            })
+        );
     }
 
     getProductById(id: number): Observable<Product | undefined> {
-        // Ideally, there should be a detail endpoint like list.php?id=, 
-        // but for now we'll fetch all and find the one.
-        return this.http.get<Product[]>(this.apiUrl).pipe(
+        return this.getProducts().pipe(
             map(products => products.find(p => p.id === id))
         );
     }
