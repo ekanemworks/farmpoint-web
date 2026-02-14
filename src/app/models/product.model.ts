@@ -8,7 +8,7 @@ export interface Product {
   image_2: string;
   categoryName: string;
   itemName: string;
-  createdAt: string;
+  sellerName: string;
   sellerLocation: string;
 }
 
