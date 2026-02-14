@@ -1,7 +1,9 @@
 .product-list-container {
     padding: 20px;
+    padding-bottom: 60px;
     max-width: 1400px;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 mat-grid-tile {

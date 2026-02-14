@@ -1,21 +1,20 @@
-<mat-card class="product-card" (click)="viewDetails()">
-  <img mat-card-image [src]="product.image_1" [alt]="product.title">
-  <mat-card-header>
-    <mat-card-title>{{ product.title }}</mat-card-title>
-    <mat-card-subtitle>{{ product.categoryName }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="product-details">
-      <div class="price">{{ product.price | currency }}</div>
-      <div class="location">
-        <mat-icon inline>location_on</mat-icon>
-        {{ product.sellerLocation }}
-      </div>
-      <div class="date">Sold By: {{ product.sellerName }}</div>
+<div class="product-card" (click)="viewDetails()">
+  <div class="image-container">
+    <img [src]="product.image_1" [alt]="product.title">
+    <button mat-icon-button class="wishlist-btn" (click)="$event.stopPropagation()">
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+  </div>
+
+  <div class="card-content">
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p class="product-price">{{ product.price | currency }}</p>
+
+    <div class="card-actions">
+      <button class="action-btn outline" (click)="viewDetails($event)">VIEW DETAILS</button>
+      <button class="action-btn solid" (click)="$event.stopPropagation()">
+        LOCATION: {{ product.sellerLocation }}
+      </button>
     </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button color="primary" (click)="viewDetails($event)">VIEW DETAILS</button>
-    <button mat-raised-button color="accent" (click)="addToCart($event)">ADD TO CART</button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+</div>
