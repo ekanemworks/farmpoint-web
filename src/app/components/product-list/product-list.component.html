@@ -1,7 +1,5 @@
 <div class="product-list-container">
-    <mat-grid-list [cols]="cols$ | async" rowHeight="600px" gutterSize="20px">
-        <mat-grid-tile *ngFor="let product of products$ | async">
-            <app-product-card [product]="product"></app-product-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <div class="products-grid" [style.grid-template-columns]="'repeat(' + (cols$ | async) + ', 1fr)'">
+        <app-product-card *ngFor="let product of products$ | async" [product]="product"></app-product-card>
+    </div>
 </div>

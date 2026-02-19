@@ -6,6 +6,9 @@
     margin-bottom: 40px;
 }
 
-mat-grid-tile {
-    overflow: visible;
+.products-grid {
+    display: grid;
+    gap: 30px;
+    width: 100%;
+    align-items: start;
 }
